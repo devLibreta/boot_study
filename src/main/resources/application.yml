@@ -1,0 +1,46 @@
+spring:
+  application:
+    name: boot_study
+
+  # 운영환경(prod), 개발환경(dev), 로컬환경(local)을 분리한다.
+  profiles:
+    # default profile env
+    active: local
+    # 다른 profile 설정을 지정할 수 있다.(주로, 공통에 적용될 설정 aws, profile)
+#    include: test
+
+---
+
+config:
+  activate:
+    on-profile: local
+
+# 커스텀 프로퍼티
+env:
+  loading:
+    message: "==================Loading <Local> Profile=================="
+
+logging:
+  level: # log level by package
+    # TRACE > DEBUG > INFO > WARN > ERROR > FATAL
+    com.dev.boot_study : "INFO"
+#    com.dev.springapp.aop : "ERROR"
+    root: "INFO"
+
+# @Slf4j 어노테이션이 있을 경우 롬복이 아래의 로거 필드를 자동생성해준다.
+# private final Logger log = LoggerFactory.getLogger(LogExample.class);
+# 기본 필드 명은 log. application.properties 에서 lombok.log.fieldName 값을 바꿔서 변경 가능하다.
+lombok:
+  log:
+    fieldName: "LOGGER"
+
+---
+
+config:
+  activate:
+    on-profile: dev
+
+# 커스텀 프로퍼티
+env:
+  loading:
+    message: "==================Loading <Dev> Profile=================="
