@@ -24,7 +24,7 @@ class CookieTest {
 
     /**
      * jakarta.servlet.http.Cookie
-     * 쿠키의 값을 설정, 읽기 메소드에 대해 알아보는 테스트이다.
+     * 쿠키의 값을 설정, 읽기 메소드에 대해 알아보는 테스트이다..
      */
 
     private final Logger LOGGER = LoggerFactory.getLogger(CookieTest.class.getName());
